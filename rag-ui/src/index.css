@@ -1,0 +1,138 @@
+/* ============================================================
+   DOCMIND — Dark Theme Design System
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Dark Backgrounds ── */
+  --bg-base:      #0D0D12;
+  --bg-surface:   #13131A;
+  --bg-elevated:  #1A1A24;
+  --bg-hover:     #1F1F2E;
+  --bg-input:     #16161F;
+
+  /* ── Accent — Indigo/Violet ── */
+  --accent:       #7C6FFF;
+  --accent-dim:   rgba(124,111,255,0.15);
+  --accent-glow:  rgba(124,111,255,0.35);
+  --accent-light: #A89CFF;
+  --accent-dark:  #6254E8;
+
+  /* ── Semantic Colors ── */
+  --success:        #34D399;
+  --success-dim:    rgba(52,211,153,0.12);
+  --success-border: rgba(52,211,153,0.3);
+
+  --error:          #F87171;
+  --error-dim:      rgba(248,113,113,0.12);
+  --error-border:   rgba(248,113,113,0.3);
+
+  /* ── Text ── */
+  --text-primary:   #E8E6F0;
+  --text-secondary: #9D9BB5;
+  --text-muted:     #5A5875;
+
+  /* ── Borders ── */
+  --border:       #1E1E2E;
+  --border-mid:   #2A2A3D;
+  --border-bright:#3A3A55;
+
+  /* ── Shadows ── */
+  --shadow-sm:  0 1px 4px rgba(0,0,0,0.4);
+  --shadow-md:  0 4px 20px rgba(0,0,0,0.5);
+  --shadow-lg:  0 12px 48px rgba(0,0,0,0.6);
+  --shadow-accent: 0 4px 24px rgba(124,111,255,0.4);
+  --glow-accent:   0 0 40px rgba(124,111,255,0.15);
+
+  /* ── Radii ── */
+  --r-sm:   8px;
+  --r-md:   14px;
+  --r-lg:   20px;
+  --r-xl:   28px;
+  --r-full: 9999px;
+
+  /* ── Typography ── */
+  --font-sans:  'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  /* ── Transitions ── */
+  --ease:        cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out:    cubic-bezier(0, 0, 0.2, 1);
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: var(--font-sans);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--border-bright);
+  border-radius: var(--r-full);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ══════════════════════════════════════════════
+   KEYFRAMES
+   ══════════════════════════════════════════════ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.15); }
+}
+@keyframes dotBounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40%           { transform: translateY(-7px); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124,111,255,0.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(124,111,255,0); }
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+@keyframes floatUp {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}

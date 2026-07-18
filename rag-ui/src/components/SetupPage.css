@@ -1,0 +1,276 @@
+.setup-page {
+  min-height: 100vh;
+  background: var(--bg-base);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 20px 40px;
+  animation: fadeIn 0.4s var(--ease);
+}
+
+.setup-card {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Header ── */
+.setup-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+  animation: fadeUp 0.45s var(--ease);
+}
+
+.setup-logo {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 12px rgba(108,99,255,0.3));
+}
+.setup-logo svg { width: 100%; height: 100%; }
+
+.setup-title {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.setup-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 3px;
+  font-weight: 400;
+}
+
+/* ── Field label ── */
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  animation: fadeUp 0.45s var(--ease) 0.05s both;
+}
+
+/* ════════════════════════════════════════
+   DROP ZONE BAR  (wide horizontal bar)
+   ════════════════════════════════════════ */
+.dropbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 18px;
+  height: 68px;
+  background: var(--bg-surface);
+  border: 1.8px dashed var(--border-hover);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease),
+              box-shadow 0.2s var(--ease), transform 0.15s var(--ease-spring);
+  animation: fadeUp 0.45s var(--ease) 0.08s both;
+}
+.dropbar:hover {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  box-shadow: 0 0 0 3px rgba(108,99,255,0.10);
+}
+.dropbar.drag-over {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  box-shadow: 0 0 0 4px rgba(108,99,255,0.15);
+  transform: scale(1.005);
+}
+.dropbar.busy { cursor: not-allowed; opacity: 0.8; }
+
+.dropbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.cloud-icon { width: 28px; height: 22px; flex-shrink: 0; }
+
+.dropbar-text {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.dropbar-main {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+.dropbar-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.bar-spinner {
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid var(--accent-light);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* Browse button (inside drop bar, right side) */
+.browse-btn {
+  flex-shrink: 0;
+  padding: 8px 20px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-hover);
+  border-radius: var(--r-sm);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.18s var(--ease), border-color 0.18s var(--ease),
+              color 0.18s var(--ease), box-shadow 0.18s var(--ease), transform 0.15s var(--ease-spring);
+  white-space: nowrap;
+}
+.browse-btn:hover:not(:disabled) {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow-accent);
+  transform: translateY(-1px);
+}
+.browse-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ════════════════════════════════════════
+   FILE ROW  (after successful upload)
+   ════════════════════════════════════════ */
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  padding: 0 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  animation: fadeUp 0.3s var(--ease-spring);
+}
+
+.file-row-icon { width: 22px; height: 22px; flex-shrink: 0; }
+
+.file-row-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-row-size {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.file-row-remove {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: none;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: background 0.15s var(--ease), color 0.15s var(--ease);
+  flex-shrink: 0;
+}
+.file-row-remove:hover { background: var(--error-light); color: var(--error); }
+
+/* ════════════════════════════════════════
+   STATUS BAR  (full-width banner)
+   ════════════════════════════════════════ */
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 18px;
+  border-radius: var(--r-md);
+  font-size: 14px;
+  font-weight: 500;
+  animation: fadeUp 0.3s var(--ease-spring);
+}
+.status-bar.success {
+  background: #DCFCE7;
+  color: #166534;
+  border: 1px solid #86EFAC;
+}
+.status-bar.error {
+  background: var(--error-light);
+  color: #991B1B;
+  border: 1px solid #FECACA;
+}
+.status-bar svg { flex-shrink: 0; }
+
+/* ════════════════════════════════════════
+   CREATE VECTOR DB BUTTON
+   ════════════════════════════════════════ */
+.create-db-btn {
+  align-self: flex-start;
+  padding: 10px 22px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-hover);
+  border-radius: var(--r-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.18s var(--ease), border-color 0.18s var(--ease),
+              color 0.18s var(--ease), box-shadow 0.18s var(--ease), transform 0.15s var(--ease-spring);
+  animation: fadeUp 0.3s var(--ease-spring);
+}
+.create-db-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow-accent);
+  transform: translateY(-1px);
+}
+
+/* ════════════════════════════════════════
+   PROCESSING ROW
+   ════════════════════════════════════════ */
+.processing-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 4px 2px;
+  animation: fadeIn 0.3s var(--ease);
+}
+
+.proc-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-hover);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  flex-shrink: 0;
+}
